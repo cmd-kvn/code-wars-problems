@@ -16,30 +16,14 @@ Make sure you cover the cases where certain words do not show up with correct ca
 
 module.exports = function getDrinkByProfession(param) {
     const profession = param.toLowerCase();
-    let drink;
 
     switch (profession) {
-    case 'jabroni':
-        drink = 'Patron Tequila';
-        break;
-    case 'school counselor':
-        drink = 'Anything with Alcohol';
-        break;
-    case 'programmer':
-        drink = 'Hipster Craft Beer';
-        break;
-    case 'bike gang member':
-        drink = 'Moonshine';
-        break;
-    case 'politician':
-        drink = 'Your tax dollars';
-        break;
-    case 'rapper':
-        drink = 'Cristal';
-        break;
-    default:
-        drink = 'Beer';
+    case 'jabroni': return 'Patron Tequila';
+    case 'school counselor': return 'Anything with Alcohol';
+    case 'programmer': return 'Hipster Craft Beer';
+    case 'bike gang member': return 'Moonshine';
+    case 'politician': return 'Your tax dollars';
+    case 'rapper': return 'Cristal';
+    default: return 'Beer';
     }
-
-    return drink;
 };
