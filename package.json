@@ -1,0 +1,28 @@
+{
+  "name": "code-wars-problems",
+  "version": "1.0.0",
+  "description": "Problems worked out from codewars.com",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmd-kvn/code-wars-problems.git"
+  },
+  "author": "Kevin Wong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmd-kvn/code-wars-problems/issues"
+  },
+  "homepage": "https://github.com/cmd-kvn/code-wars-problems#readme",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "eslint": "^4.3.0",
+    "mocha": "^3.5.0"
+  }
+}
