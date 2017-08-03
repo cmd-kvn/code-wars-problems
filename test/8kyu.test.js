@@ -1,10 +1,12 @@
 const { assert } = require('chai');
 
-const last = require('../8kyu/last');
-const getDrinkByProfession = require('../8kyu/l1-bartender-drinks!');
-const replaceDots = require('../8kyu/fixme-replace-all-dots');
+const dir = '../8kyu/';
+const last = require(`${dir}last`);
+const getDrinkByProfession = require(`${dir}l1-bartender-drinks!`);
+const replaceDots = require(`${dir}fixme-replace-all-dots`);
+const apple = require(`${dir}alan-partridge-ii`);
 
-describe.only('8kyu katas', () => {
+describe('8kyu katas', () => {
     let tests, answers;
 
     it('Passes "last"', () => {
@@ -29,6 +31,18 @@ describe.only('8kyu katas', () => {
         answers = ['one-two-three', '', 'no dots', '---', 'x----x-x--x---x-'];
     
         return tests.map((test, i) => assert.equal(replaceDots(tests[i]), answers[i]));
+    });
+
+    it('Passes "apple"', () => {
+        tests = ['0', 0, 10, '32', 50];
+        answers = ['It\'s hotter than the sun!!', 'Help yourself to a honeycomb Yorkie for the glovebox.'];
+
+        assert.equal(apple(tests[0]), answers[1]);
+        assert.equal(apple(tests[1]), answers[1]);
+        assert.equal(apple(tests[2]), answers[1]);
+        assert.equal(apple(tests[3]), answers[0]);
+        assert.equal(apple(tests[4]), answers[0]);
+
     });
 
 });
