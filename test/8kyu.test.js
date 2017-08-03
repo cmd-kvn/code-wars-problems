@@ -54,7 +54,7 @@ describe('8kyu katas', () => {
         assert.equal(alan(['Disappointment', 'Rejection', 'Disappointment', 'Disappointment', 'London', 'Tiverton', 'Disappointment']), answers[1]);
     });
 
-    it.only('Passes "first"', () => {
+    it('Passes "first"', () => {
         const arr = ['a', 'b', 'c', 'd', 'e'];
         tests = [null, 2, 0];
         answers = [['a'], ['a', 'b'], []];

@@ -1,30 +1,29 @@
 const { assert } = require('chai');
 
-const mumbling = require('../7kyu/mumbling');
+const dir = '../7kyu/';
+const mumbling = require(`${dir}mumbling`);
+const range = require(`${dir}get-the-integers-between-two-numbers`);
 
 describe('7kyu katas', () => {
+    let tests, answers;
 
     it('Passes "mumbling"', () => {
-        const test1 = 'ZpglnRxqenU';
-        const answer1 = 'Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu';
+        tests = ['ZpglnRxqenU', 'NyffsGeyylB', 'MjtkuBovqrU', 'abcd', 'cwAt'];
+        answers = ['Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu',
+            'N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb',
+            'M-Jj-Ttt-Kkkk-Uuuuu-Bbbbbb-Ooooooo-Vvvvvvvv-Qqqqqqqqq-Rrrrrrrrrr-Uuuuuuuuuuu',
+            'A-Bb-Ccc-Dddd', 
+            'C-Ww-Aaa-Tttt'
+        ];
 
-        const test2 = 'NyffsGeyylB';
-        const answer2 = 'N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb';
+        tests.map((test, i) => assert.equal(mumbling(test), answers[i]));
+    });
 
-        const test3 = 'MjtkuBovqrU';
-        const answer3 = 'M-Jj-Ttt-Kkkk-Uuuuu-Bbbbbb-Ooooooo-Vvvvvvvv-Qqqqqqqqq-Rrrrrrrrrr-Uuuuuuuuuuu';
+    it('Passes "range"', () => {
+        tests = [[2, 9], [6, 8], [102, 111]];
+        answers = [[3, 4, 5, 6, 7, 8], [7], [103, 104, 105, 106, 107, 108, 109, 110]];
 
-        const test4 = 'abcd';
-        const answer4 = 'A-Bb-Ccc-Dddd';
-
-        const test5 = 'cwAt';
-        const answer5 = 'C-Ww-Aaa-Tttt';
-
-        assert.equal(mumbling(test1), answer1);
-        assert.equal(mumbling(test2), answer2);
-        assert.equal(mumbling(test3), answer3);
-        assert.equal(mumbling(test4), answer4);
-        assert.equal(mumbling(test5), answer5);
+        tests.map((test, i) => assert.sameMembers(range(test[0], test[1]), answers[i]));
     });
 
 });
