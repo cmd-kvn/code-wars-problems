@@ -3,6 +3,7 @@ const { assert } = require('chai');
 const dir = '../7kyu/';
 const mumbling = require(`${dir}mumbling`);
 const range = require(`${dir}get-the-integers-between-two-numbers`);
+const disemvowel = require(`${dir}disemvowel-trolls`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -24,6 +25,15 @@ describe('7kyu katas', () => {
         answers = [[3, 4, 5, 6, 7, 8], [7], [103, 104, 105, 106, 107, 108, 109, 110]];
 
         tests.map((test, i) => assert.sameMembers(range(test[0], test[1]), answers[i]));
+    });
+
+    it('Passes "disemvowel"', () => {
+        tests = ['This website is for losers LOL!', 'No offense but,\nYour writing is among the worst I\'ve ever read',
+            'What are you, a communist?'];
+        answers = ['Ths wbst s fr lsrs LL!', 'N ffns bt,\nYr wrtng s mng th wrst \'v vr rd', 
+            'Wht r y,  cmmnst?'];
+
+        tests.map((test, i) => assert.equal(disemvowel(test), answers[i]));
     });
 
 });
