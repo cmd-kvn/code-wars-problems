@@ -24,5 +24,7 @@ module.exports = function removeII(s) {
         }
     }
 
-    return s.slice(0, endIndex);    
+    return s.slice(0, endIndex); 
+    // alternative solution:
+    // return s.replace(/!+$/, '')
 };
