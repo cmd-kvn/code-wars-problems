@@ -7,7 +7,8 @@ const replaceDots = require(`${dir}fixme-replace-all-dots`);
 const apple = require(`${dir}alan-partridge-ii`);
 const alan = require(`${dir}alan-partridge-iii`);
 const first = require(`${dir}pick-a-set-of-first-elements`);
-const remove = require(`${dir}exclamation-mark-series-ii`);
+const removeII = require(`${dir}exclamation-mark-series-ii`);
+const removeVI = require(`${dir}exclamation-mark-series-vi`);
 
 describe('8kyu katas', () => {
     let tests, answers;
@@ -62,13 +63,21 @@ describe('8kyu katas', () => {
         tests.map((test, i) => assert.sameDeepOrderedMembers(first(arr, test), answers[i]));
     });
 
-    it('Passes ""', () => {
+    it.only('Passes "removeII"', () => {
+        tests = ['Hi!', 'Hi!!!', '!Hi', '!Hi!', 'Hi! Hi!', 'Hi'];
+        answers = ['Hi', 'Hi', '!Hi', '!Hi', 'Hi! Hi', 'Hi'];
+
+        tests.map((test, i) => assert.equal(removeII(test), answers[i]));
+
+    });
+
+    it.skip('Passes "removeVI"', () => {
         tests = [['Hi!',1], ['Hi!',100], ['Hi!!!',1], ['Hi!!!',100], ['!Hi',1], ['!Hi!',1], ['!Hi!',100], 
             ['!!!Hi !!hi!!! !hi',1], ['!!!Hi !!hi!!! !hi',3], ['!!!Hi !!hi!!! !hi',5], ['!!!Hi !!hi!!! !hi',100]];
         answers = ['Hi', 'Hi', 'Hi!!', 'Hi', 'Hi', 'Hi!', 'Hi', 
             '!!Hi !!hi!!! !hi', 'Hi !!hi!!! !hi', 'Hi hi!!! !hi', 'Hi hi hi'];
         
-        tests.map((test, i) => assert.equal(remove(test[0], test[1]), answers[i]));
+        tests.map((test, i) => assert.equal(removeVI(test[0], test[1]), answers[i]));
     });
 
 });
