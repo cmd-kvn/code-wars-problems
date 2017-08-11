@@ -9,6 +9,7 @@ const alan = require(`${dir}alan-partridge-iii`);
 const first = require(`${dir}pick-a-set-of-first-elements`);
 const removeII = require(`${dir}exclamation-mark-series-ii`);
 const removeVI = require(`${dir}exclamation-mark-series-vi`);
+const booleanToString = require(`${dir}convert-boolean-to-string`);
 
 describe('8kyu katas', () => {
     let tests, answers;
@@ -63,7 +64,7 @@ describe('8kyu katas', () => {
         tests.map((test, i) => assert.sameDeepOrderedMembers(first(arr, test), answers[i]));
     });
 
-    it.only('Passes "removeII"', () => {
+    it('Passes "removeII"', () => {
         tests = ['Hi!', 'Hi!!!', '!Hi', '!Hi!', 'Hi! Hi!', 'Hi'];
         answers = ['Hi', 'Hi', '!Hi', '!Hi', 'Hi! Hi', 'Hi'];
 
@@ -78,6 +79,13 @@ describe('8kyu katas', () => {
             '!!Hi !!hi!!! !hi', 'Hi !!hi!!! !hi', 'Hi hi!!! !hi', 'Hi hi hi'];
         
         tests.map((test, i) => assert.equal(removeVI(test[0], test[1]), answers[i]));
+    });
+
+    it.only('Passes "booleanToString"', () => {
+        tests = [true, false];
+        answers = ['true', 'false'];
+
+        tests.map((test, i) => assert.equal(booleanToString(test), answers[i]));
     });
 
 });
