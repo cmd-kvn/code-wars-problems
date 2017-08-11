@@ -4,6 +4,7 @@ const dir = '../7kyu/';
 const mumbling = require(`${dir}mumbling`);
 const range = require(`${dir}get-the-integers-between-two-numbers`);
 const disemvowel = require(`${dir}disemvowel-trolls`);
+const reverseNumber = require(`${dir}reverse-a-number`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -34,6 +35,13 @@ describe('7kyu katas', () => {
             'Wht r y,  cmmnst?'];
 
         tests.map((test, i) => assert.equal(disemvowel(test), answers[i]));
+    });
+
+    it.only('Passes "reverseNumber"', () => {
+        tests = [123, -123, 1000, 4321234, 5, 98989898];
+        answers = [321, -321, 1, 4321234, 5, 89898989];
+
+        tests.map((test, i) => assert.equal(reverseNumber(test), answers[i]));
     });
 
 });

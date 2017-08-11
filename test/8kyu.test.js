@@ -89,7 +89,7 @@ describe('8kyu katas', () => {
         tests.map((test, i) => assert.equal(booleanToString(test), answers[i]));
     });
 
-    it.only('Passes "removeIV"', () => {
+    it('Passes "removeIV"', () => {
         tests = ['Hi!', 'Hi!!!', '!Hi', '!Hi!', 'Hi! Hi!', 'Hi'];
         answers = ['Hi!', 'Hi!', 'Hi!', 'Hi!', 'Hi Hi!', 'Hi!'];
 
