@@ -5,6 +5,7 @@ const mumbling = require(`${dir}mumbling`);
 const range = require(`${dir}get-the-integers-between-two-numbers`);
 const disemvowel = require(`${dir}disemvowel-trolls`);
 const reverseNumber = require(`${dir}reverse-a-number`);
+const stringTask = require(`${dir}string-task`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -14,7 +15,7 @@ describe('7kyu katas', () => {
         answers = ['Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu',
             'N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb',
             'M-Jj-Ttt-Kkkk-Uuuuu-Bbbbbb-Ooooooo-Vvvvvvvv-Qqqqqqqqq-Rrrrrrrrrr-Uuuuuuuuuuu',
-            'A-Bb-Ccc-Dddd', 
+            'A-Bb-Ccc-Dddd',
             'C-Ww-Aaa-Tttt'
         ];
 
@@ -31,7 +32,7 @@ describe('7kyu katas', () => {
     it('Passes "disemvowel"', () => {
         tests = ['This website is for losers LOL!', 'No offense but,\nYour writing is among the worst I\'ve ever read',
             'What are you, a communist?'];
-        answers = ['Ths wbst s fr lsrs LL!', 'N ffns bt,\nYr wrtng s mng th wrst \'v vr rd', 
+        answers = ['Ths wbst s fr lsrs LL!', 'N ffns bt,\nYr wrtng s mng th wrst \'v vr rd',
             'Wht r y,  cmmnst?'];
 
         tests.map((test, i) => assert.equal(disemvowel(test), answers[i]));
@@ -42,6 +43,13 @@ describe('7kyu katas', () => {
         answers = [321, -321, 1, 4321234, 5, 89898989];
 
         tests.map((test, i) => assert.equal(reverseNumber(test), answers[i]));
+    });
+
+    it.only('Passes "stringTask"', () => {
+        tests = ['tour', 'Codewars', 'aBAcAba', 'g', 'a'];
+        answers = ['.t.r', '.c.d.w.r.s', '.b.c.b', '.g', ''];
+
+        tests.map((test, i) => assert.equal(stringTask(test), answers[i]));
     });
 
 });

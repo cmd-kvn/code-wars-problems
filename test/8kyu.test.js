@@ -97,7 +97,7 @@ describe('8kyu katas', () => {
         tests.map((test, i) => assert.equal(removeIV(test), answers[i]));
     });
 
-    it.only('Passes "bonusTime"', () => {
+    it('Passes "bonusTime"', () => {
         tests = [[10000, true], [25000, true], [10000, false], [60000, false], [2, true], [78, false], [67890, true]];
         answers = ['£100000', '£250000', '£10000', '£60000', '£20', '£78', '£678900'];
 
