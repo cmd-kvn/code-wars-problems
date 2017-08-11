@@ -11,6 +11,7 @@ const removeII = require(`${dir}exclamation-mark-series-ii`);
 const removeVI = require(`${dir}exclamation-mark-series-vi`);
 const booleanToString = require(`${dir}convert-boolean-to-string`);
 const removeIV = require(`${dir}exclamation-mark-series-iv`);
+const bonusTime = require(`${dir}do-i-get-a-bonus`);
 
 describe('8kyu katas', () => {
     let tests, answers;
@@ -96,4 +97,10 @@ describe('8kyu katas', () => {
         tests.map((test, i) => assert.equal(removeIV(test), answers[i]));
     });
 
+    it.only('Passes "bonusTime"', () => {
+        tests = [[10000, true], [25000, true], [10000, false], [60000, false], [2, true], [78, false], [67890, true]];
+        answers = ['£100000', '£250000', '£10000', '£60000', '£20', '£78', '£678900'];
+
+        tests.map((test, i) => assert.equal(bonusTime(test[0], test[1]), answers[i]));
+    });
 });

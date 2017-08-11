@@ -37,7 +37,7 @@ describe('7kyu katas', () => {
         tests.map((test, i) => assert.equal(disemvowel(test), answers[i]));
     });
 
-    it.only('Passes "reverseNumber"', () => {
+    it('Passes "reverseNumber"', () => {
         tests = [123, -123, 1000, 4321234, 5, 98989898];
         answers = [321, -321, 1, 4321234, 5, 89898989];
 
