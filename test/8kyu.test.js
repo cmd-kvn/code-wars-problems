@@ -10,6 +10,7 @@ const first = require(`${dir}pick-a-set-of-first-elements`);
 const removeII = require(`${dir}exclamation-mark-series-ii`);
 const removeVI = require(`${dir}exclamation-mark-series-vi`);
 const booleanToString = require(`${dir}convert-boolean-to-string`);
+const removeIV = require(`${dir}exclamation-mark-series-iv`);
 
 describe('8kyu katas', () => {
     let tests, answers;
@@ -60,7 +61,7 @@ describe('8kyu katas', () => {
         const arr = ['a', 'b', 'c', 'd', 'e'];
         tests = [null, 2, 0];
         answers = [['a'], ['a', 'b'], []];
-        
+
         tests.map((test, i) => assert.sameDeepOrderedMembers(first(arr, test), answers[i]));
     });
 
@@ -73,19 +74,26 @@ describe('8kyu katas', () => {
     });
 
     it.skip('Passes "removeVI"', () => {
-        tests = [['Hi!',1], ['Hi!',100], ['Hi!!!',1], ['Hi!!!',100], ['!Hi',1], ['!Hi!',1], ['!Hi!',100], 
-            ['!!!Hi !!hi!!! !hi',1], ['!!!Hi !!hi!!! !hi',3], ['!!!Hi !!hi!!! !hi',5], ['!!!Hi !!hi!!! !hi',100]];
-        answers = ['Hi', 'Hi', 'Hi!!', 'Hi', 'Hi', 'Hi!', 'Hi', 
+        tests = [['Hi!', 1], ['Hi!', 100], ['Hi!!!', 1], ['Hi!!!', 100], ['!Hi', 1], ['!Hi!', 1], ['!Hi!', 100],
+            ['!!!Hi !!hi!!! !hi', 1], ['!!!Hi !!hi!!! !hi', 3], ['!!!Hi !!hi!!! !hi', 5], ['!!!Hi !!hi!!! !hi', 100]];
+        answers = ['Hi', 'Hi', 'Hi!!', 'Hi', 'Hi', 'Hi!', 'Hi',
             '!!Hi !!hi!!! !hi', 'Hi !!hi!!! !hi', 'Hi hi!!! !hi', 'Hi hi hi'];
-        
+
         tests.map((test, i) => assert.equal(removeVI(test[0], test[1]), answers[i]));
     });
 
-    it.only('Passes "booleanToString"', () => {
+    it('Passes "booleanToString"', () => {
         tests = [true, false];
         answers = ['true', 'false'];
 
         tests.map((test, i) => assert.equal(booleanToString(test), answers[i]));
+    });
+
+    it.only('Passes "removeIV"', () => {
+        tests = ['Hi!', 'Hi!!!', '!Hi', '!Hi!', 'Hi! Hi!', 'Hi'];
+        answers = ['Hi!', 'Hi!', 'Hi!', 'Hi!', 'Hi Hi!', 'Hi!'];
+
+        tests.map((test, i) => assert.equal(removeIV(test), answers[i]));
     });
 
 });
