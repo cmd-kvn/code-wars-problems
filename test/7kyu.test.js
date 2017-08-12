@@ -6,6 +6,7 @@ const range = require(`${dir}get-the-integers-between-two-numbers`);
 const disemvowel = require(`${dir}disemvowel-trolls`);
 const reverseNumber = require(`${dir}reverse-a-number`);
 const stringTask = require(`${dir}string-task`);
+const vowelCount = require(`${dir}vowel-count`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -45,11 +46,18 @@ describe('7kyu katas', () => {
         tests.map((test, i) => assert.equal(reverseNumber(test), answers[i]));
     });
 
-    it.only('Passes "stringTask"', () => {
+    it('Passes "stringTask"', () => {
         tests = ['tour', 'Codewars', 'aBAcAba', 'g', 'a'];
         answers = ['.t.r', '.c.d.w.r.s', '.b.c.b', '.g', ''];
 
         tests.map((test, i) => assert.equal(stringTask(test), answers[i]));
+    });
+
+    it.only('Passes "vowelCount"', () => {
+        tests = ['abracadabra', 'pear tree', 'o a kak ushakov lil vo kashu kakao', 'my pyx'];
+        answers = [5 , 4 , 13 , 0];
+        
+        tests.map((test, i) => assert.equal(vowelCount(test), answers[i]));
     });
 
 });
