@@ -13,6 +13,7 @@ const booleanToString = require(`${dir}convert-boolean-to-string`);
 const removeIV = require(`${dir}exclamation-mark-series-iv`);
 const bonusTime = require(`${dir}do-i-get-a-bonus`);
 const repeatIt = require(`${dir}repeat-it`);
+const sleighAuthentication = require(`${dir}sleigh-authentication`);
 
 describe('8kyu katas', () => {
     let tests, answers;
@@ -105,11 +106,18 @@ describe('8kyu katas', () => {
         tests.map((test, i) => assert.equal(bonusTime(test[0], test[1]), answers[i]));
     });
 
-    it.only('Passes "repeatIt"', () => {
+    it('Passes "repeatIt"', () => {
         tests = [['*', 3], ['Hello', 11], [123, 1], [true, 2], [['array'], 3], [{ key: 'object' }, 4]];
         answers = ['***', 'HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello', 'Not a string', 'Not a string', 'Not a string', 'Not a string'];
 
         tests.map((test, i) => assert.equal(repeatIt(test[0], test[1]), answers[i]));
+    });
+
+    it.only('Passes "sleighAuthentication"', () => {
+        tests = [['Santa Claus', 'Ho Ho Ho!'], ['Santa', 'Ho Ho Ho!'], ['Santa Claus', 'Ho Ho!'], ['jhoffner', 'CodeWars']];
+        answers = [true, false, false, false];
+        
+        tests.map((test, i) => assert.equal(sleighAuthentication(test[0], test[1]), answers[i]));
     });
 
 });
