@@ -10,7 +10,7 @@ const vowelCount = require(`${dir}vowel-count`);
 const sprayingTrees = require(`${dir}spraying-trees`);
 const oddOrEven = require(`${dir}odd-or-even`);
 
-describe.only('7kyu katas', () => {
+describe('7kyu katas', () => {
     let tests, answers;
 
     it('Passes "mumbling"', () => {
@@ -75,11 +75,11 @@ describe.only('7kyu katas', () => {
         tests.map((test, i) => assert.equal(sprayingTrees(test[0], test[1], test[2]), answers[i]));
     });
 
-    it.only('Passes "oddOrEven"', () => {
+    it('Passes "oddOrEven"', () => {
         // edge tests
         tests = [[[0], 'even'], [[1], 'odd'], [[], 'even']];
         tests.map(test => assert.equal(oddOrEven(test[0]), test[1]));
-        
+
         // even tests
         tests = [[[0, 1, 5], 'even'], [[0, 1, 3], 'even'], [[1023, 1, 2], 'even']];
         tests.map(test => assert.equal(oddOrEven(test[0]), test[1]));
@@ -91,7 +91,7 @@ describe.only('7kyu katas', () => {
         // odd tests
         tests = [[[0, 1, 2], 'odd'], [[0, 1, 4], 'odd'], [[1023, 1, 3], 'odd']];
         tests.map(test => assert.equal(oddOrEven(test[0]), test[1]));
-        
+
         // negative odd tests
         tests = [[[0, -1, 2], 'odd'], [[0, 1, -4], 'odd'], [[-1023, -1, 3], 'odd']];
         tests.map(test => assert.equal(oddOrEven(test[0]), test[1]));
