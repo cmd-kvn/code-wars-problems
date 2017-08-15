@@ -9,6 +9,7 @@ const stringTask = require(`${dir}string-task`);
 const vowelCount = require(`${dir}vowel-count`);
 const sprayingTrees = require(`${dir}spraying-trees`);
 const oddOrEven = require(`${dir}odd-or-even`);
+const pattern1 = require(`${dir}complete-the-pattern-i`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -95,6 +96,13 @@ describe('7kyu katas', () => {
         // negative odd tests
         tests = [[[0, -1, 2], 'odd'], [[0, 1, -4], 'odd'], [[-1023, -1, 3], 'odd']];
         tests.map(test => assert.equal(oddOrEven(test[0]), test[1]));
+    });
+
+    it.only('Passes "pattern1"', () => {
+        tests = [1, 2, 5, 0, 0.5];
+        answers = ['1', '1\n22' , '1\n22\n333\n4444\n55555', '', ''];
+
+        tests.map((test, i) => assert.equal(pattern1(test), answers[i]));
     });
 
 });

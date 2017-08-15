@@ -113,7 +113,7 @@ describe('8kyu katas', () => {
         tests.map((test, i) => assert.equal(repeatIt(test[0], test[1]), answers[i]));
     });
 
-    it.only('Passes "sleighAuthentication"', () => {
+    it('Passes "sleighAuthentication"', () => {
         tests = [['Santa Claus', 'Ho Ho Ho!'], ['Santa', 'Ho Ho Ho!'], ['Santa Claus', 'Ho Ho!'], ['jhoffner', 'CodeWars']];
         answers = [true, false, false, false];
         
