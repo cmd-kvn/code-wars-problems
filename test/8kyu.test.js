@@ -76,7 +76,7 @@ describe('8kyu katas', () => {
 
     });
 
-    it.only('Passes "removeVI"', () => {
+    it('Passes "removeVI"', () => {
         tests = [['Hi!', 1], ['Hi!', 100], ['Hi!!!', 1], ['Hi!!!', 100], ['!Hi', 1], ['!Hi!', 1], ['!Hi!', 100],
             ['!!!Hi !!hi!!! !hi', 1], ['!!!Hi !!hi!!! !hi', 3], ['!!!Hi !!hi!!! !hi', 5], ['!!!Hi !!hi!!! !hi', 100]];
         answers = ['Hi', 'Hi', 'Hi!!', 'Hi', 'Hi', 'Hi!', 'Hi',
