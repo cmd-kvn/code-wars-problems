@@ -98,7 +98,7 @@ describe('7kyu katas', () => {
         tests.map(test => assert.equal(oddOrEven(test[0]), test[1]));
     });
 
-    it.only('Passes "pattern1"', () => {
+    it('Passes "pattern1"', () => {
         tests = [1, 2, 5, 0, 0.5];
         answers = ['1', '1\n22' , '1\n22\n333\n4444\n55555', '', ''];
 
