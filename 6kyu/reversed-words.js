@@ -8,6 +8,6 @@ reverseWords("The greatest victory is that which requires no battle")
 
 */
 
-module.exports = function reverseWords(str) {
+module.exports = function reversedWords(str) {
     return str.split(' ').reverse().join(' ');
 };
