@@ -3,6 +3,7 @@ const { assert } = require('chai');
 const dir = '../6kyu/';
 const reverseWords = require(`${dir}reversed-words`);
 const list = require(`${dir}format-a-string-of-names`);
+const calculateHypotenuse = require(`${dir}calculate-hypotenuse-of-right-triangle`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -21,6 +22,18 @@ describe('6kyu katas', () => {
         answers = ['Bart, Lisa, Maggie, Homer & Marge', 'Bart, Lisa & Maggie', 'Bart & Lisa', 'Bart', ''];
 
         tests.map((test, i) => assert.equal(list(test), answers[i]));
+    });
+
+    it.only('Passes "calculateHypotenuse"', () => {
+        // non-error cases
+        tests = [[1, 1], [3, 4]]; 
+        answers = [1.414, 5];
+        tests.map((test, i) => assert.equal(calculateHypotenuse(test[0], test[1]), answers[i]));
+        
+        // error cases
+        tests = [[-2,1], [2,-3], ['one',2], [3,'two'], [3], [], [true, 4], [2,false], [NaN, 5], [6, NaN]];
+        answers = 'arguments must be numbers above zero';
+        tests.map((test) => assert.throws(() => {calculateHypotenuse(test[0], test[1]);}, answers));
     });
 
 });
