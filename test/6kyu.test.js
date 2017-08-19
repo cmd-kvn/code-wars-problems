@@ -37,7 +37,7 @@ describe('6kyu katas', () => {
         tests.map((test) => assert.throws(() => {calculateHypotenuse(test[0], test[1]);}, answers));
     });
 
-    it.only('Passes "reverseWords"', () => {
+    it('Passes "reverseWords"', () => {
         tests = ['The quick brown fox jumps over the lazy dog.', 'apple', 'a b c d', 'double  spaced  words'];
         answers = ['ehT kciuq nworb xof spmuj revo eht yzal .god', 'elppa', 'a b c d', 'elbuod  decaps  sdrow'];
 
