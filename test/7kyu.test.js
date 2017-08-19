@@ -10,6 +10,7 @@ const vowelCount = require(`${dir}vowel-count`);
 const sprayingTrees = require(`${dir}spraying-trees`);
 const oddOrEven = require(`${dir}odd-or-even`);
 const pattern1 = require(`${dir}complete-the-pattern-i`);
+const sumOfIntegersInString = require(`${dir}sum-of-integers-in-string`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -100,9 +101,17 @@ describe('7kyu katas', () => {
 
     it('Passes "pattern1"', () => {
         tests = [1, 2, 5, 0, 0.5];
-        answers = ['1', '1\n22' , '1\n22\n333\n4444\n55555', '', ''];
+        answers = ['1', '1\n22', '1\n22\n333\n4444\n55555', '', ''];
 
         tests.map((test, i) => assert.equal(pattern1(test), answers[i]));
     });
 
+    it.only('Passes "sumOfIntegersInString"', () => {
+        tests = [['12.4', 16], ['h3ll0w0rld', 3], ['2 + 3 = ', 5],
+            ['Our company made approximately 1 million in gross revenue last quarter.', 1],
+            ['The Great Depression lasted from 1929 to 1939.', 3868], ['Dogs are our best friends.', 0],
+            ['C4t5 are 4m4z1ng.', 18], ['The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog', 3635]];
+    
+        tests.map(test => assert.equal(sumOfIntegersInString(test[0]), test[1]));    
+    });
 });

@@ -14,7 +14,7 @@ describe('5kyu katas', () => {
         tests.map((test, i) => assert.equal(orderWeights(test), answers[i]));
     });
 
-    it.only('Passes "domainName"', () => {
+    it('Passes "domainName"', () => {
         tests = ['http://google.com', 'http://google.co.jp', 'http://www.youtube.com', 'www.xakep.ru', 
             'https://youtube.com', 'https://www.youtube.com', 'youtube.com'];
         answers = ['google', 'google', 'youtube', 'xakep', 'youtube', 'youtube', 'youtube'];
