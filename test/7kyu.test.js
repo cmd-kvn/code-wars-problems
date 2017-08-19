@@ -11,6 +11,7 @@ const sprayingTrees = require(`${dir}spraying-trees`);
 const oddOrEven = require(`${dir}odd-or-even`);
 const pattern1 = require(`${dir}complete-the-pattern-i`);
 const sumOfIntegersInString = require(`${dir}sum-of-integers-in-string`);
+const vowelIndices = require(`${dir}find-the-vowels`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -106,12 +107,19 @@ describe('7kyu katas', () => {
         tests.map((test, i) => assert.equal(pattern1(test), answers[i]));
     });
 
-    it.only('Passes "sumOfIntegersInString"', () => {
+    it('Passes "sumOfIntegersInString"', () => {
         tests = [['12.4', 16], ['h3ll0w0rld', 3], ['2 + 3 = ', 5],
             ['Our company made approximately 1 million in gross revenue last quarter.', 1],
             ['The Great Depression lasted from 1929 to 1939.', 3868], ['Dogs are our best friends.', 0],
             ['C4t5 are 4m4z1ng.', 18], ['The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog', 3635]];
-    
-        tests.map(test => assert.equal(sumOfIntegersInString(test[0]), test[1]));    
+
+        tests.map(test => assert.equal(sumOfIntegersInString(test[0]), test[1]));
+    });
+
+    it.only('Passes "vowelIndices"', () => {
+        tests = ['mmm', 'apple', 'super', 'orange', 'supercalifragilisticexpialidocious', 'vaNnEh'];
+        answers = [[], [1, 5], [2, 4], [1, 3, 6], [2, 4, 7, 9, 12, 14, 16, 19, 21, 24, 25, 27, 29, 31, 32, 33], [2, 5]];
+
+        tests.map((test, i) => assert.deepEqual(vowelIndices(test), answers[i]));
     });
 });
