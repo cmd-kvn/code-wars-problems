@@ -45,7 +45,7 @@ describe('6kyu katas', () => {
         tests.map((test, i) => assert.equal(reverseWords(test), answers[i]));
     });
 
-    describe.only('biggest-number-with-strings.js', () => {
+    describe('biggest-number-with-strings.js', () => {
         it('Passes "isNegOrPos"', () => {
             tests = ['-1', '--2', '---3', '----4', '-----567', '6', '789'];
             answers = ['-1', '2', '-3', '4', '-567', '6', '789'];
