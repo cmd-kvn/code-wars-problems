@@ -12,6 +12,7 @@ const oddOrEven = require(`${dir}odd-or-even`);
 const pattern1 = require(`${dir}complete-the-pattern-i`);
 const sumOfIntegersInString = require(`${dir}sum-of-integers-in-string`);
 const vowelIndices = require(`${dir}find-the-vowels`);
+const sumAndMultiply = require(`${dir}sum-and-multiply`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -116,10 +117,39 @@ describe('7kyu katas', () => {
         tests.map(test => assert.equal(sumOfIntegersInString(test[0]), test[1]));
     });
 
-    it.only('Passes "vowelIndices"', () => {
+    it('Passes "vowelIndices"', () => {
         tests = ['mmm', 'apple', 'super', 'orange', 'supercalifragilisticexpialidocious', 'vaNnEh'];
         answers = [[], [1, 5], [2, 4], [1, 3, 6], [2, 4, 7, 9, 12, 14, 16, 19, 21, 24, 25, 27, 29, 31, 32, 33], [2, 5]];
 
         tests.map((test, i) => assert.deepEqual(vowelIndices(test), answers[i]));
+    });
+
+    describe('sum-and-multiply', () => {
+        it('Passes findMultiplicands', () => {
+            tests = [12, 9, 8452, 56];
+            answers = [[[1, 12], [2, 6], [3, 4]], 
+                [[1, 9], [3, 3]],
+                [[1, 8452], [2, 4226], [4, 2113]],
+                [[1, 56], [2, 28], [4, 14], [7, 8]]];
+            
+            tests.map((test, i) => assert.deepEqual(sumAndMultiply.findMultiplicands(test), answers[i]));
+        });
+
+        it('Passes findAddends', () => {
+            tests = [[13, [[1, 12], [2, 6], [3, 4]]],
+                [6, [[1, 9], [3, 3]]],
+                [200, [[1, 8452], [2, 4226], [4, 2113]]],
+                [15, [[1, 56], [2, 28], [4, 14], [7, 8]]]];
+            answers = [[1, 12], [3, 3], undefined, [7, 8]];
+
+            tests.map((test, i) => assert.deepEqual(sumAndMultiply.findAddends(test[0], test[1]), answers[i]));
+        });
+
+        it('Passes "sumAndMultiply"', () => {
+            tests = [[13, 12], [6, 9], [200, 8452], [15, 56], [300, 0]];
+            answers = [[1, 12], [3, 3], null, [7, 8], [0, 300]];
+
+            tests.map((test, i) => assert.deepEqual(sumAndMultiply.sumAndMultiply(test[0], test[1]), answers[i]));
+        });
     });
 });
