@@ -5,6 +5,7 @@ const reversedWords = require(`${dir}reversed-words`);
 const list = require(`${dir}format-a-string-of-names`);
 const calculateHypotenuse = require(`${dir}calculate-hypotenuse-of-right-triangle`);
 const reverseWords = require(`${dir}reverse-words`);
+const biggestNumWithStrings = require(`${dir}biggest-number-with-strings`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -42,6 +43,23 @@ describe('6kyu katas', () => {
         answers = ['ehT kciuq nworb xof spmuj revo eht yzal .god', 'elppa', 'a b c d', 'elbuod  decaps  sdrow'];
 
         tests.map((test, i) => assert.equal(reverseWords(test), answers[i]));
+    });
+
+    describe.only('biggest-number-with-strings.js', () => {
+        it('Passes "isNegOrPos"', () => {
+            tests = ['-1', '--2', '---3', '----4', '-----567', '6', '789'];
+            answers = ['-1', '2', '-3', '4', '-567', '6', '789'];
+
+            tests.map((test, i) => assert.equal(biggestNumWithStrings.isNegOrPos(test), answers[i]));
+        });
+
+        // it('Passes "removeLeadZeros"', () => {
+
+        // });
+
+        // it('Passes "biggestNum"', () => {
+
+        // });
     });
 
 });

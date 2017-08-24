@@ -124,7 +124,7 @@ describe('7kyu katas', () => {
         tests.map((test, i) => assert.deepEqual(vowelIndices(test), answers[i]));
     });
 
-    describe('sum-and-multiply', () => {
+    describe('sum-and-multiply.js', () => {
         it('Passes findMultiplicands', () => {
             tests = [12, 9, 8452, 56];
             answers = [[[1, 12], [2, 6], [3, 4]], 
