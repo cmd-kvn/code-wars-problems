@@ -14,6 +14,7 @@ const removeIV = require(`${dir}exclamation-mark-series-iv`);
 const bonusTime = require(`${dir}do-i-get-a-bonus`);
 const repeatIt = require(`${dir}repeat-it`);
 const sleighAuthentication = require(`${dir}sleigh-authentication`);
+const tripleTrouble = require(`${dir}triple-trouble`);
 
 describe('8kyu katas', () => {
     let tests, answers;
@@ -118,6 +119,13 @@ describe('8kyu katas', () => {
         answers = [true, false, false, false];
         
         tests.map((test, i) => assert.equal(sleighAuthentication(test[0], test[1]), answers[i]));
+    });
+
+    it('Passes "tripleTrouble"', () => {
+        tests = [['this','test','lock'], ['aa','bb','cc'], ['Bm', 'aa', 'tn'], ['LLh','euo','xtr'], ['aaaaaa', 'bbbbbb', 'cccccc']];
+        answers = ['ttlheoiscstk', 'abcabc', 'Batman', 'LexLuthor', 'abcabcabcabcabcabc'];
+
+        tests.map((test, i) => assert.equal(tripleTrouble(test[0], test[1], test[2]), answers[i]));
     });
 
 });
