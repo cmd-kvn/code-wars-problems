@@ -15,6 +15,7 @@ const vowelIndices = require(`${dir}find-the-vowels`);
 const sumAndMultiply = require(`${dir}sum-and-multiply`);
 const { average } = require(`${dir}basic-js-calculating-averages`);
 const pattern2 = require(`${dir}complete-the-pattern-ii`);
+const nameThem = require(`${dir}fixme-get-full-name`);
 
 
 describe('7kyu katas', () => {
@@ -168,4 +169,12 @@ describe('7kyu katas', () => {
 
         tests.map((test, i) => assert.equal(pattern2(test), answers[i]));
     });
+
+    it('Passes "getFullName" from the "nameThem" class', () => {
+        tests = [['Clint', 'Eastwood'], ['Clint', ''], ['', 'Eastwood'], ['', '']];
+        answers = ['Clint Eastwood', 'Clint', 'Eastwood', ''];
+
+        tests.map((test, i) => assert.equal(new nameThem(test[0], test[1]).getFullName(), answers[i]));       
+    });
+
 });
