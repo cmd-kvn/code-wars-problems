@@ -3,6 +3,7 @@ const { assert } = require('chai');
 const dir = '../5kyu/';
 const orderWeights = require(`${dir}weightForWeight`);
 const domainName = require(`${dir}extract-domain-name`);
+const breakCamelCase = require(`${dir}break-camel-case`);
 
 describe('5kyu katas', () => {
     let tests, answers; 
@@ -20,6 +21,13 @@ describe('5kyu katas', () => {
         answers = ['google', 'google', 'youtube', 'xakep', 'youtube', 'youtube', 'youtube'];
         
         tests.map((test, i) => assert.equal(domainName(test), answers[i]));
+    });
+
+    it('Passes "breakCamelCase"', () => {
+        tests = ['camelCase', 'camelCaseThis', '', 'camel', 'camel1Case2This3', 'c@melCa$eTh!s'];
+        answers = ['camel Case', 'camel Case This', '', 'camel', 'camel1 Case2 This3', 'c@mel Ca$e Th!s'];
+
+        tests.map((test, i) => assert.equal(breakCamelCase(test), answers[i]));
     });
 
 });
