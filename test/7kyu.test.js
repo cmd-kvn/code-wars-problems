@@ -14,6 +14,8 @@ const sumOfIntegersInString = require(`${dir}sum-of-integers-in-string`);
 const vowelIndices = require(`${dir}find-the-vowels`);
 const sumAndMultiply = require(`${dir}sum-and-multiply`);
 const { average } = require(`${dir}basic-js-calculating-averages`);
+const pattern2 = require(`${dir}complete-the-pattern-ii`);
+
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -158,5 +160,12 @@ describe('7kyu katas', () => {
         assert.equal(average(3, 4, 5), 4);
         assert.equal(average(3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3), 5.769230769230769);
         assert.equal(average(), 0);
+    });
+
+    it('Passes "pattern2"', () => {
+        tests = [1, 2, 5, 0];
+        answers = ['1', '21\n2', '54321\n5432\n543\n54\n5', ''];
+
+        tests.map((test, i) => assert.equal(pattern2(test), answers[i]));
     });
 });
