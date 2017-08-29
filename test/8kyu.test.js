@@ -16,6 +16,7 @@ const repeatIt = require(`${dir}repeat-it`);
 const sleighAuthentication = require(`${dir}sleigh-authentication`);
 const tripleTrouble = require(`${dir}triple-trouble`);
 const Person = require(`${dir}classy-classes`);
+const datingRange = require(`${dir}age-range-compatibility-equation`);
 
 describe('8kyu katas', () => {
     let tests, answers;
@@ -134,5 +135,13 @@ describe('8kyu katas', () => {
         answers = ['johns age is 34', 'janes age is 28', 'joes age is 22'];
 
         tests.map((test, i) => assert.equal(new Person(test[0], test[1]).info, answers[i]));
+    });
+
+    it('Passes "datingRange"', () => {
+        tests = [17, 40, 15, 35, 10, 5];
+        answers = ['15-20', '27-66', '14-16', '24-56', '9-11', '4-5'];
+
+        tests.map((test, i) => assert.equal(datingRange(test), answers[i]));
+    
     });
 });
