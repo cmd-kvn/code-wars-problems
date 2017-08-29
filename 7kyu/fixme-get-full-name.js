@@ -30,4 +30,4 @@ module.exports = class nameThem {
         return `${this.firstName} ${this.lastName}`.trim();
     }
 
-}
+};

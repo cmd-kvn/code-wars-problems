@@ -15,6 +15,7 @@ const bonusTime = require(`${dir}do-i-get-a-bonus`);
 const repeatIt = require(`${dir}repeat-it`);
 const sleighAuthentication = require(`${dir}sleigh-authentication`);
 const tripleTrouble = require(`${dir}triple-trouble`);
+const Person = require(`${dir}classy-classes`);
 
 describe('8kyu katas', () => {
     let tests, answers;
@@ -128,4 +129,10 @@ describe('8kyu katas', () => {
         tests.map((test, i) => assert.equal(tripleTrouble(test[0], test[1], test[2]), answers[i]));
     });
 
+    it('Passes class "Person"', () => {
+        tests = [['john', 34], ['jane', 28], ['joe', 22]];
+        answers = ['johns age is 34', 'janes age is 28', 'joes age is 22'];
+
+        tests.map((test, i) => assert.equal(new Person(test[0], test[1]).info, answers[i]));
+    });
 });
