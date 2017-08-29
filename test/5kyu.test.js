@@ -4,6 +4,7 @@ const dir = '../5kyu/';
 const orderWeights = require(`${dir}weightForWeight`);
 const domainName = require(`${dir}extract-domain-name`);
 const breakCamelCase = require(`${dir}break-camel-case`);
+const moveZeros = require(`${dir}moving-zeros-to-the-end`);
 
 describe('5kyu katas', () => {
     let tests, answers; 
@@ -30,4 +31,18 @@ describe('5kyu katas', () => {
         tests.map((test, i) => assert.equal(breakCamelCase(test), answers[i]));
     });
 
+    it('Passes "moveZeros"', () => {
+        tests = [[0, 0, 0, 0, 1, 2, 1, 1, 3, 1],
+            [9, 0, 9, 0, 1, 0, 2, 0, 1, 0, 1, 0, 3, 0, 1, 0, 9, 0, 9, 0],
+            [0, 0, 'a', 'b', 0, 0, 'c', 0, 0, 'd', 1, 0, 0, 1, 3, 0, 0, 1, 9, 9],
+            [0, 'a', 'b', 0, null, 0, 'c', 'd', 1, 0, false, 0, 1, 3, 0, [], 0, 1, 9, 0, {}, 0, 9, 0],
+            [1, 0, null, 2, false, 0, 1]];
+        answers = [[1, 2, 1, 1, 3, 1, 0, 0, 0, 0],
+            [9, 9, 1, 2, 1, 1, 3, 1, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            ['a', 'b', 'c', 'd', 1, 1, 3, 1, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            ['a', 'b', null, 'c', 'd', 1, false, 1, 3, [], 1, 9, {}, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [1, null, 2, false, 1, 0, 0]];
+
+        tests.map((test, i) => assert.deepEqual(moveZeros(test), answers[i]));
+    });
 });
