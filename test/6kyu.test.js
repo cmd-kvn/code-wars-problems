@@ -8,6 +8,7 @@ const reverseWords = require(`${dir}reverse-words`);
 const { biggestNum, isNegOrPos, removeLeadZeros } = require(`${dir}biggest-number-with-strings`);
 const alphabetPosition = require(`${dir}replace-with-alphabet-position`);
 const stringAverage = require(`${dir}string-average`);
+const symmetricSort = require(`${dir}coding-3m-symmetric-sort`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -96,6 +97,15 @@ describe('6kyu katas', () => {
         answers = ['four', 'three', 'three', 'four', 'zero', 'two', 'n/a', 'n/a', 'n/a'];
 
         tests.map((test, i) => assert.equal(stringAverage(test), answers[i]));
+    });
+
+    it.only('Passes "symmetricSort"', () => {
+        tests = [[1,2,3,4,5,6,7,8,9], [1,1,2,2,3,3,4,4,5], [9,8,7,6,5,4,3,2,1], 
+            [5,4,4,3,3,2,2,1,1], [11,2,33,4,55,6], [5,12,5,8,33,13]];
+        answers = [[1,3,5,7,9,8,6,4,2], [1,2,3,4,5,4,3,2,1], [1,3,5,7,9,8,6,4,2], 
+            [1,2,3,4,5,4,3,2,1], [2,6,33,55,11,4], [5,8,13,33,12,5]];
+
+        tests.map((test, i) => assert.deepEqual(symmetricSort(test), answers[i]));
     });
 
 });
