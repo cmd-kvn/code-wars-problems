@@ -10,6 +10,7 @@ const alphabetPosition = require(`${dir}replace-with-alphabet-position`);
 const stringAverage = require(`${dir}string-average`);
 const symmetricSort = require(`${dir}coding-3m-symmetric-sort`);
 const spinWords = require(`${dir}stop-gninnips-my-sdrow`);
+const toWeirdCase = require(`${dir}weird-string-case`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -119,5 +120,12 @@ describe('6kyu katas', () => {
             ['Seriously this is the last one', 'ylsuoireS this is the last one']];
         
         tests.map(test => assert.equal(spinWords(test[0]), test[1]));
+    });
+
+    it.only('Passes "toWeirdCase"', () => {
+        tests = ['One', 'Two words', 'Multiple words test', 'ALL CAPS', 'rANdoM ChAOS oRder'];
+        answers = ['OnE', 'TwO WoRdS', 'MuLtIpLe WoRdS TeSt', 'AlL CaPs', 'RaNdOm ChAoS OrDeR'];
+
+        tests.map((test, i) => assert.equal(toWeirdCase(test), answers[i]));
     });
 });
