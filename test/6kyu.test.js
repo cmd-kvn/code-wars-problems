@@ -9,6 +9,7 @@ const { biggestNum, isNegOrPos, removeLeadZeros } = require(`${dir}biggest-numbe
 const alphabetPosition = require(`${dir}replace-with-alphabet-position`);
 const stringAverage = require(`${dir}string-average`);
 const symmetricSort = require(`${dir}coding-3m-symmetric-sort`);
+const spinWords = require(`${dir}stop-gninnips-my-sdrow`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -108,4 +109,15 @@ describe('6kyu katas', () => {
         tests.map((test, i) => assert.deepEqual(symmetricSort(test), answers[i]));
     });
 
+    it('Passes "spinWords"', () => {
+        tests = [['Welcome', 'emocleW'], 
+            ['Hey fellow warriors', 'Hey wollef sroirraw'], 
+            ['This is a test', 'This is a test'], 
+            ['This is another test', 'This is rehtona test'], 
+            ['You are almost to the last test', 'You are tsomla to the last test'], 
+            ['Just kidding there is still one more', 'Just gniddik ereht is llits one more'], 
+            ['Seriously this is the last one', 'ylsuoireS this is the last one']];
+        
+        tests.map(test => assert.equal(spinWords(test[0]), test[1]));
+    });
 });
