@@ -11,6 +11,7 @@ const stringAverage = require(`${dir}string-average`);
 const symmetricSort = require(`${dir}coding-3m-symmetric-sort`);
 const spinWords = require(`${dir}stop-gninnips-my-sdrow`);
 const toWeirdCase = require(`${dir}weird-string-case`);
+const { separateStrings } = require(`${dir}separate-strings`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -122,10 +123,34 @@ describe('6kyu katas', () => {
         tests.map(test => assert.equal(spinWords(test[0]), test[1]));
     });
 
-    it.only('Passes "toWeirdCase"', () => {
+    it('Passes "toWeirdCase"', () => {
         tests = ['One', 'Two words', 'Multiple words test', 'ALL CAPS', 'rANdoM ChAOS oRder'];
         answers = ['OnE', 'TwO WoRdS', 'MuLtIpLe WoRdS TeSt', 'AlL CaPs', 'RaNdOm ChAoS OrDeR'];
 
         tests.map((test, i) => assert.equal(toWeirdCase(test), answers[i]));
+    });
+
+    it.only('Passes "separateStrings"', () => {
+        tests = ['test', 'Just Live Life Man', 'The Mitochondria is the powerhouse of the cell'];
+        answers = [[['t'], ['e'], ['s'], ['t']], 
+            [['J','L','L','M']
+                ,['u','i','i','a']
+                ,['s','v','f','n']
+                ,['t','e','e','']], 
+            [ [ 'T', 'M', 'i', 't', 'p', 'o', 't', 'c' ],
+                [ 'h', 'i', 's', 'h', 'o', 'f', 'h', 'e' ],
+                [ 'e', 't', '', 'e', 'w', '', 'e', 'l' ],
+                [ '', 'o', '', '', 'e', '', '', 'l' ],
+                [ '', 'c', '', '', 'r', '', '', '' ],
+                [ '', 'h', '', '', 'h', '', '', '' ],
+                [ '', 'o', '', '', 'o', '', '', '' ],
+                [ '', 'n', '', '', 'u', '', '', '' ],
+                [ '', 'd', '', '', 's', '', '', '' ],
+                [ '', 'r', '', '', 'e', '', '', '' ],
+                [ '', 'i', '', '', '', '', '', '' ],
+                [ '', 'a', '', '', '', '', '', '' ]]
+        ];
+
+        tests.map((test, i) => assert.deepEqual(separateStrings(test), answers[i]));
     });
 });
