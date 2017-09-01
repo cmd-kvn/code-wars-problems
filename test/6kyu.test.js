@@ -12,6 +12,7 @@ const symmetricSort = require(`${dir}coding-3m-symmetric-sort`);
 const spinWords = require(`${dir}stop-gninnips-my-sdrow`);
 const toWeirdCase = require(`${dir}weird-string-case`);
 const { separateStrings } = require(`${dir}separate-strings`);
+const fridayTheThirteenths = require(`${dir}friday-the-13ths`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -130,7 +131,7 @@ describe('6kyu katas', () => {
         tests.map((test, i) => assert.equal(toWeirdCase(test), answers[i]));
     });
 
-    it.only('Passes "separateStrings"', () => {
+    it('Passes "separateStrings"', () => {
         tests = ['test', 'Just Live Life Man', 'The Mitochondria is the powerhouse of the cell'];
         answers = [[['t'], ['e'], ['s'], ['t']], 
             [['J','L','L','M']
@@ -152,5 +153,12 @@ describe('6kyu katas', () => {
         ];
 
         tests.map((test, i) => assert.deepEqual(separateStrings(test), answers[i]));
+    });
+
+    it.only('Passes "fridayTheThirteenths"', () => {
+        tests = [[1999, 2000], [2000]];
+        answers = ['8/13/1999 10/13/2000', '10/13/2000'];
+
+        tests.map((test, i) => assert.equal(fridayTheThirteenths(test[0], test[1]), answers[i]));
     });
 });
