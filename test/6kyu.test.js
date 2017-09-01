@@ -155,7 +155,7 @@ describe('6kyu katas', () => {
         tests.map((test, i) => assert.deepEqual(separateStrings(test), answers[i]));
     });
 
-    it.only('Passes "fridayTheThirteenths"', () => {
+    it('Passes "fridayTheThirteenths"', () => {
         tests = [[1999, 2000], [2000]];
         answers = ['8/13/1999 10/13/2000', '10/13/2000'];
 

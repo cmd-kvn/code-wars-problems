@@ -17,6 +17,7 @@ const sleighAuthentication = require(`${dir}sleigh-authentication`);
 const tripleTrouble = require(`${dir}triple-trouble`);
 const Person = require(`${dir}classy-classes`);
 const datingRange = require(`${dir}age-range-compatibility-equation`);
+const pointsPer48 = require(`${dir}nba-full-48-minutes-average`);
 
 describe('8kyu katas', () => {
     let tests, answers;
@@ -141,7 +142,13 @@ describe('8kyu katas', () => {
         tests = [17, 40, 15, 35, 10, 5];
         answers = ['15-20', '27-66', '14-16', '24-56', '9-11', '4-5'];
 
-        tests.map((test, i) => assert.equal(datingRange(test), answers[i]));
-    
+        tests.map((test, i) => assert.equal(datingRange(test), answers[i]));  
+    });
+
+    it('Passes "pointsPer48"', () => {
+        tests = [[[12, 20], 28.8], [[10, 10], 48.0], [[5, 17], 14.1], 
+            [[30.8, 34.7], 42.6], [[22.9, 33.8], 32.5], [[0, 0], 0]];
+        
+        tests.map(test => assert.equal(pointsPer48(test[0][0], test[0][1]), test[1]));    
     });
 });
