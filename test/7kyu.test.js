@@ -17,6 +17,7 @@ const { average } = require(`${dir}basic-js-calculating-averages`);
 const pattern2 = require(`${dir}complete-the-pattern-ii`);
 const nameThem = require(`${dir}fixme-get-full-name`);
 const pattern4 = require(`${dir}complete-the-pattern-iv`);
+const pattern3 = require(`${dir}complete-the-pattern-iii`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -182,5 +183,12 @@ describe('7kyu katas', () => {
         answers = ['1', '12\n2', '12345\n2345\n345\n45\n5', '', ''];
 
         tests.map((test, i) => assert.equal(pattern4(test), answers[i]));
+    });
+
+    it('Passes "pattern3"', () => {
+        tests = [1, 2, 5, 0, -3];
+        answers = ['1','2\n21','5\n54\n543\n5432\n54321', '', '']; 
+
+        tests.map((test, i) => assert.equal(pattern3(test), answers[i]));
     });
 });
