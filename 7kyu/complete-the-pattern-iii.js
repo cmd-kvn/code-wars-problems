@@ -35,21 +35,16 @@ Note: There are no blank spaces
 Hint: Use \n in string to jump to next line
 */
 
+const { countdown } = require('./complete-the-pattern-ii');
+
 module.exports = function pattern3(n) {
     const output = [];
-    const countdown = function (start, finish) {
-        let numLine = '';
-        for (let i = start; i > finish; i--) {
-            numLine += i;
-        }
-
-        return numLine;
-    };
 
     for (let j = 0; j < n; j++) {
         output.push(countdown(n, j));
     }
 
+    /* Pattern3 is just the reverse of pattern2! */
     output.reverse();
 
     return n < 1 ? '' : output.join('\n');

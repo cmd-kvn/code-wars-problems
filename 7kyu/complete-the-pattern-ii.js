@@ -41,20 +41,23 @@ pattern(11):
 Hint: Use \n in string to jump to next line
 */
 
-module.exports = function pattern2(n) {
+module.exports = {pattern2, countdown};
+
+function pattern2(n) {
     const output = [];
-    const countdown = function (start, finish) {
-        let numLine = '';
-        for (let i = start; i > finish; i--) {
-            numLine += i;
-        }
-
-        return numLine;
-    };
-
+    
     for (let j = 0; j < n; j++) {
         output.push(countdown(n, j));
     }
-
+    
     return n < 1 ? '' : output.join('\n');
-};
+}
+
+function countdown(start, finish) {
+    let numLine = '';
+    for (let i = start; i > finish; i--) {
+        numLine += i;
+    }
+
+    return numLine;
+}
