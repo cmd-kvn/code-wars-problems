@@ -19,6 +19,7 @@ const nameThem = require(`${dir}fixme-get-full-name`);
 const pattern4 = require(`${dir}complete-the-pattern-iv`);
 const pattern3 = require(`${dir}complete-the-pattern-iii`);
 const pattern5 = require(`${dir}complete-the-pattern-v`);
+const ninety9Problems1 = require(`${dir}99-problems-1`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -199,4 +200,11 @@ describe('7kyu katas', () => {
 
         tests.map((test, i) => assert.equal(pattern5(test), answers[i]));
     });
+
+    it('Passes "ninety9Problems1"', () => {
+        tests = [[[1, 2, 3], 3], [[], null]];
+
+        tests.map(test => assert.equal(ninety9Problems1(test[0]), test[1]));
+    });
+
 });
