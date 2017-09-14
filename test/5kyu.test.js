@@ -5,6 +5,7 @@ const orderWeights = require(`${dir}weightForWeight`);
 const domainName = require(`${dir}extract-domain-name`);
 const breakCamelCase = require(`${dir}break-camel-case`);
 const moveZeros = require(`${dir}moving-zeros-to-the-end`);
+const simplePigLatin = require(`${dir}simple-pig-latin`);
 
 describe('5kyu katas', () => {
     let tests, answers; 
@@ -44,5 +45,12 @@ describe('5kyu katas', () => {
             [1, null, 2, false, 1, 0, 0]];
 
         tests.map((test, i) => assert.deepEqual(moveZeros(test), answers[i]));
+    });
+
+    it('Passes "simplePigLatin"', () => {
+        tests = [['Pig latin is cool', 'igPay atinlay siay oolcay'],
+            ['This is my string', 'hisTay siay ymay tringsay']];
+
+        tests.map(test => assert.equal(simplePigLatin(test[0]), test[1]));
     });
 });
