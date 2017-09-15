@@ -208,7 +208,7 @@ describe('7kyu katas', () => {
         tests.map(test => assert.equal(ninety9Problems1(test[0]), test[1]));
     });
     
-    it.only('Passes js-golfing-7.js', () => {
+    it('Passes js-golfing-7.js', () => {
         tests = [[1,2,3,4,5], ['a','b','c','d'], ['1','2'], [undefined,null]];
         answers = ['12345', 'abcd', '12', ''];
 

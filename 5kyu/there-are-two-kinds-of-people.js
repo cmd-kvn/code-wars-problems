@@ -17,6 +17,7 @@ obj.there().there().are().there().two().there() // is NOT valid
 */
 
 module.exports = function functionator(str) {
+    // **********TODO: NOT FINISHED*********
     return (str.match(/\s/gi) === null) ?
         `${str.split(' ').join('().')}()`
         :

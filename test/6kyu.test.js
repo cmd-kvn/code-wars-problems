@@ -13,6 +13,7 @@ const spinWords = require(`${dir}stop-gninnips-my-sdrow`);
 const toWeirdCase = require(`${dir}weird-string-case`);
 const { separateStrings } = require(`${dir}separate-strings`);
 const fridayTheThirteenths = require(`${dir}friday-the-13ths`);
+const whoLikesIt = require(`${dir}who-likes-it`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -161,4 +162,15 @@ describe('6kyu katas', () => {
 
         tests.map((test, i) => assert.equal(fridayTheThirteenths(test[0], test[1]), answers[i]));
     });
+
+    it('Passes "whoLikesIt"', () => {
+        tests = [[[], 'no one likes this'], 
+            [['Peter'], 'Peter likes this'], 
+            [['Jacob', 'Alex'], 'Jacob and Alex like this'],
+            [['Max', 'John', 'Mark'], 'Max, John and Mark like this'],
+            [['Alex', 'Jacob', 'Mark', 'Max'], 'Alex, Jacob and 2 others like this']];
+
+        tests.map(test => assert.equal(whoLikesIt(test[0]), test[1]));
+    });
+
 });
