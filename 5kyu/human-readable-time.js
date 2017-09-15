@@ -19,4 +19,6 @@ module.exports = function humanReadable(seconds) {
     };
 
     return `${pad(HH)}:${pad(MM)}:${pad(SS)}`;
+    /* using the padStart() method after converting the number to a string */
+    // return `${(HH + '').padStart(2, '0')}:${(MM + '').padStart(2, '0')}:${(SS + '').padStart(2, '0')}`;    
 };

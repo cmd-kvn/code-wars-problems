@@ -65,7 +65,7 @@ describe('5kyu katas', () => {
         tests.map(test => assert.equal(advancedPigLatin(test[0]), test[1]));
     });
 
-    it('Passes "humanReadableTime"', () => {
+    it.only('Passes "humanReadableTime"', () => {
         tests = [[0, '00:00:00'], [5, '00:00:05'], [60, '00:01:00'], 
             [86399, '23:59:59'], [359999, '99:59:59']];
 
