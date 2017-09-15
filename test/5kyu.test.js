@@ -7,6 +7,7 @@ const breakCamelCase = require(`${dir}break-camel-case`);
 const moveZeros = require(`${dir}moving-zeros-to-the-end`);
 const simplePigLatin = require(`${dir}simple-pig-latin`);
 const advancedPigLatin = require(`${dir}advanced-pig-latin`);
+const humanReadableTime = require(`${dir}human-readable-time`);
 
 describe('5kyu katas', () => {
     let tests, answers; 
@@ -62,5 +63,12 @@ describe('5kyu katas', () => {
             ['How are you?', 'Owhay areway ouyay?']];   
         
         tests.map(test => assert.equal(advancedPigLatin(test[0]), test[1]));
+    });
+
+    it('Passes "humanReadableTime"', () => {
+        tests = [[0, '00:00:00'], [5, '00:00:05'], [60, '00:01:00'], 
+            [86399, '23:59:59'], [359999, '99:59:59']];
+
+        tests.map(test => assert.equal(humanReadableTime(test[0]), test[1]));
     });
 });
