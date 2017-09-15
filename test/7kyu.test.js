@@ -20,6 +20,7 @@ const pattern4 = require(`${dir}complete-the-pattern-iv`);
 const pattern3 = require(`${dir}complete-the-pattern-iii`);
 const pattern5 = require(`${dir}complete-the-pattern-v`);
 const ninety9Problems1 = require(`${dir}99-problems-1`);
+const jsGolfing7 = require(`${dir}js-golfing7-join`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -205,6 +206,13 @@ describe('7kyu katas', () => {
         tests = [[[1, 2, 3], 3], [[], null]];
 
         tests.map(test => assert.equal(ninety9Problems1(test[0]), test[1]));
+    });
+    
+    it.only('Passes js-golfing-7.js', () => {
+        tests = [[1,2,3,4,5], ['a','b','c','d'], ['1','2'], [undefined,null]];
+        answers = ['12345', 'abcd', '12', ''];
+
+        tests.map((test, i) => assert.equal(jsGolfing7.x(test), answers[i]));
     });
 
 });

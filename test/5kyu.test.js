@@ -6,6 +6,7 @@ const domainName = require(`${dir}extract-domain-name`);
 const breakCamelCase = require(`${dir}break-camel-case`);
 const moveZeros = require(`${dir}moving-zeros-to-the-end`);
 const simplePigLatin = require(`${dir}simple-pig-latin`);
+const advancedPigLatin = require(`${dir}advanced-pig-latin`);
 
 describe('5kyu katas', () => {
     let tests, answers; 
@@ -52,5 +53,14 @@ describe('5kyu katas', () => {
             ['This is my string', 'hisTay siay ymay tringsay']];
 
         tests.map(test => assert.equal(simplePigLatin(test[0]), test[1]));
+    });
+    
+    it('Passes "advancedPigLatin"', () => {
+        tests = [['hello', 'ellohay'], ['hello world', 'ellohay orldway'],
+            ['Hello World', 'Ellohay Orldway'],
+            ['Pizza? Yes Please!!', 'Izzapay? Esyay Easeplay!!'],
+            ['How are you?', 'Owhay areway ouyay?']];   
+        
+        tests.map(test => assert.equal(advancedPigLatin(test[0]), test[1]));
     });
 });
