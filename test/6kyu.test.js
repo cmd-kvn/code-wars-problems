@@ -14,6 +14,7 @@ const toWeirdCase = require(`${dir}weird-string-case`);
 const { separateStrings } = require(`${dir}separate-strings`);
 const fridayTheThirteenths = require(`${dir}friday-the-13ths`);
 const whoLikesIt = require(`${dir}who-likes-it`);
+const multiplesOf3And5 = require(`${dir}multiples-of-3-and-5`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -173,4 +174,9 @@ describe('6kyu katas', () => {
         tests.map(test => assert.equal(whoLikesIt(test[0]), test[1]));
     });
 
+    it.only('Passes "multiplesOf3And5"', () => {
+        tests = [[10, 23], [20, 78], [200, 9168], [-1, 0], [0, 0], [3, 0], [4, 3], [6, 8]];
+        
+        tests.map(test => assert.equal(multiplesOf3And5(test[0]), test[1]));
+    });
 });
