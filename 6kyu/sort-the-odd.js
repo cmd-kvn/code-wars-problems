@@ -17,9 +17,6 @@ module.exports = function sortTheOdds(array) {
     return array.length < 0 ?
         array
         :
-        array.map((num, i) => {
-            if (num % 2 !== 0) return odds.shift();
-            else return num;
-        });
+        array.map(num => num % 2 !== 0 ? odds.shift() : num );
 };
 
