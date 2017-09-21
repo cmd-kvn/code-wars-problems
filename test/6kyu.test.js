@@ -15,6 +15,7 @@ const { separateStrings } = require(`${dir}separate-strings`);
 const fridayTheThirteenths = require(`${dir}friday-the-13ths`);
 const whoLikesIt = require(`${dir}who-likes-it`);
 const multiplesOf3And5 = require(`${dir}multiples-of-3-and-5`);
+const sortTheOdds = require(`${dir}sort-the-odd`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -174,9 +175,19 @@ describe('6kyu katas', () => {
         tests.map(test => assert.equal(whoLikesIt(test[0]), test[1]));
     });
 
-    it.only('Passes "multiplesOf3And5"', () => {
+    it('Passes "multiplesOf3And5"', () => {
         tests = [[10, 23], [20, 78], [200, 9168], [-1, 0], [0, 0], [3, 0], [4, 3], [6, 8]];
         
         tests.map(test => assert.equal(multiplesOf3And5(test[0]), test[1]));
+    });
+
+    it('Passes "sortTheOdds"', () => {
+        tests = [[[5, 3, 2, 8, 1, 4], [1, 3, 2, 8, 5, 4]], [[5, 3, 1, 8, 0], [1, 3, 5, 8, 0]], [[],[]], 
+            [[1, 111, 11, 11, 2, 1, 5, 0 ], [1, 1, 5, 11, 2, 11, 111, 0]], 
+            [[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ], [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]], 
+            [[ 88, 90, 37, 50, 36, 66, 75, 81, 41, 77, 91, 23, 95, 45, 90, 33 ], 
+                [88, 90, 23, 50, 36, 66, 33, 37, 41, 45, 75, 77, 81, 91, 90, 95]]];
+    
+        tests.map(test => assert.deepEqual(sortTheOdds(test[0]), test[1]));
     });
 });
