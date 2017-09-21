@@ -8,6 +8,7 @@ const moveZeros = require(`${dir}moving-zeros-to-the-end`);
 const simplePigLatin = require(`${dir}simple-pig-latin`);
 const advancedPigLatin = require(`${dir}advanced-pig-latin`);
 const humanReadableTime = require(`${dir}human-readable-time`);
+const toCamelCase = require(`${dir}convert-string-to-camel-case`);
 
 describe('5kyu katas', () => {
     let tests, answers; 
@@ -70,5 +71,12 @@ describe('5kyu katas', () => {
             [86399, '23:59:59'], [359999, '99:59:59']];
 
         tests.map(test => assert.equal(humanReadableTime(test[0]), test[1]));
+    });
+
+    it('Passes "toCamelCase"', () => {
+        tests = ['', 'the_stealth_warrior', 'The-Stealth-Warrior', 'A-B-C'];
+        answers = ['', 'theStealthWarrior', 'TheStealthWarrior', 'ABC'];
+
+        tests.map((test, i) => assert.equal(toCamelCase(test), answers[i]));
     });
 });
