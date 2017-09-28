@@ -21,6 +21,7 @@ const pattern3 = require(`${dir}complete-the-pattern-iii`);
 const pattern5 = require(`${dir}complete-the-pattern-v`);
 const ninety9Problems1 = require(`${dir}99-problems-1`);
 const jsGolfing7 = require(`${dir}js-golfing7-join`);
+const findSmallestInt = require(`${dir}find-the-smallest-int-in-an-array`);
 
 describe('7kyu katas', () => {
     let tests, answers;
@@ -215,4 +216,10 @@ describe('7kyu katas', () => {
         tests.map((test, i) => assert.equal(jsGolfing7.x(test), answers[i]));
     });
 
+    it('Passes "findSmallestInt"', () => {
+        tests = [[78,56,232,12,8], [78,56,232,12,18], [78,56,232,412,228], [78,56,232,12,0], [1,56,232,12,8]];
+        answers = [8, 12, 56, 0, 1];
+        
+        tests.map((test, i) => assert.equal(findSmallestInt(test), answers[i]));
+    });
 });
