@@ -16,6 +16,7 @@ const fridayTheThirteenths = require(`${dir}friday-the-13ths`);
 const whoLikesIt = require(`${dir}who-likes-it`);
 const multiplesOf3And5 = require(`${dir}multiples-of-3-and-5`);
 const sortTheOdds = require(`${dir}sort-the-odd`);
+const countChars = require(`${dir}count-chars-in-your-string`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -189,5 +190,12 @@ describe('6kyu katas', () => {
                 [88, 90, 23, 50, 36, 66, 33, 37, 41, 45, 75, 77, 81, 91, 90, 95]]];
     
         tests.map(test => assert.deepEqual(sortTheOdds(test[0]), test[1]));
+    });
+
+    it.only('Passes "countChars"', () => {
+        tests = [['', {}], ['aa', { a: 2 }], ['aabb', { a: 2, b: 2 }],
+            ['abab', { a: 2, b: 2 }], ['aaabbbbb', { a: 3, b: 5 }]];
+
+        tests.map(test => assert.deepEqual(countChars(test[0]), test[1]));
     });
 });
