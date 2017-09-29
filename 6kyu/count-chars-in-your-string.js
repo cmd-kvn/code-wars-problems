@@ -9,8 +9,7 @@ module.exports = function countChars(str) {
 
     str.split('')
         .map(c => {
-            if (dictionary[c]) dictionary[c] += 1;
-            else dictionary[c] = 1;
+            (dictionary[c]) ? dictionary[c] += 1 : dictionary[c] = 1;
         });
 
     return str.length === 0 ? {} : dictionary;
