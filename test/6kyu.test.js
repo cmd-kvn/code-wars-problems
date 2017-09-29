@@ -17,6 +17,7 @@ const whoLikesIt = require(`${dir}who-likes-it`);
 const multiplesOf3And5 = require(`${dir}multiples-of-3-and-5`);
 const sortTheOdds = require(`${dir}sort-the-odd`);
 const countChars = require(`${dir}count-chars-in-your-string`);
+const camelCaseMethod = require(`${dir}camel-case-method`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -192,10 +193,17 @@ describe('6kyu katas', () => {
         tests.map(test => assert.deepEqual(sortTheOdds(test[0]), test[1]));
     });
 
-    it.only('Passes "countChars"', () => {
+    it('Passes "countChars"', () => {
         tests = [['', {}], ['aa', { a: 2 }], ['aabb', { a: 2, b: 2 }],
             ['abab', { a: 2, b: 2 }], ['aaabbbbb', { a: 3, b: 5 }]];
 
         tests.map(test => assert.deepEqual(countChars(test[0]), test[1]));
+    });
+
+    it.only('Passes "camelCaseMethod"', () => {
+        tests = [['test case', 'TestCase'], ['camel case method', 'CamelCaseMethod'], 
+            ['say hello ', 'SayHello'], [' camel case word', 'CamelCaseWord'], ['', '']];
+
+        tests.map(test => assert.equal(camelCaseMethod(test[0]), test[1]));
     });
 });
