@@ -19,6 +19,7 @@ const sortTheOdds = require(`${dir}sort-the-odd`);
 const countChars = require(`${dir}count-chars-in-your-string`);
 const camelCaseMethod = require(`${dir}camel-case-method`);
 const consonantValue = require(`${dir}consonant-value`);
+const isOddHeavy = require(`${dir}odd-heavy-array`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -208,10 +209,20 @@ describe('6kyu katas', () => {
         tests.map(test => assert.equal(camelCaseMethod(test[0]), test[1]));
     });
 
-    it.only('Passes "consonantValue"', () => {
+    it('Passes "consonantValue"', () => {
         tests = [['zodiac', 26], ['codewars', 37], ['chruschtschov', 80], ['khrushchev', 38], 
             ['strength', 57], ['catchphrase', 73], ['twelfthstreet', 103], ['mischtschenkoana', 80]];
 
         tests.map(test => assert.equal(consonantValue(test[0]), test[1]));
     });
+
+    it.only('Passes "isOddHeavy"', () => {
+        tests = [[[0, 2, 19, 4, 4], true], [[1, -2, -1, 2], false], [[0,2,19,4,4],true], [[1,-2,-1,2],false], 
+            [[-3,2,1,3,-1,-2],false], [[3,4,-2,-3,-2],false], [[-1,1,-2,2,-2,-2,-4,4],false], 
+            [[-1,-2,21],true],  [[0,0,0,0],false], [[0,-1,1],false], [[0,2,3],true], [[0],false], [[],false], [[1],true]];
+    
+        tests.map(test => assert.equal(isOddHeavy(test[0]), test[1]));
+    });
+
+
 });
