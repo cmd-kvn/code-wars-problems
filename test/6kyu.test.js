@@ -18,6 +18,7 @@ const multiplesOf3And5 = require(`${dir}multiples-of-3-and-5`);
 const sortTheOdds = require(`${dir}sort-the-odd`);
 const countChars = require(`${dir}count-chars-in-your-string`);
 const camelCaseMethod = require(`${dir}camel-case-method`);
+const consonantValue = require(`${dir}consonant-value`);
 
 describe('6kyu katas', () => {
     let tests, answers;
@@ -200,10 +201,17 @@ describe('6kyu katas', () => {
         tests.map(test => assert.deepEqual(countChars(test[0]), test[1]));
     });
 
-    it.only('Passes "camelCaseMethod"', () => {
+    it('Passes "camelCaseMethod"', () => {
         tests = [['test case', 'TestCase'], ['camel case method', 'CamelCaseMethod'], 
             ['say hello ', 'SayHello'], [' camel case word', 'CamelCaseWord'], ['', '']];
 
         tests.map(test => assert.equal(camelCaseMethod(test[0]), test[1]));
+    });
+
+    it.only('Passes "consonantValue"', () => {
+        tests = [['zodiac', 26], ['codewars', 37], ['chruschtschov', 80], ['khrushchev', 38], 
+            ['strength', 57], ['catchphrase', 73], ['twelfthstreet', 103], ['mischtschenkoana', 80]];
+
+        tests.map(test => assert.equal(consonantValue(test[0]), test[1]));
     });
 });
