@@ -192,7 +192,7 @@ describe('6kyu katas', () => {
         tests.map(test => assert.deepEqual(sortTheOdds(test[0]), test[1]));
     });
 
-    it.only('Passes "countChars"', () => {
+    it('Passes "countChars"', () => {
         tests = [['', {}], ['aa', { a: 2 }], ['aabb', { a: 2, b: 2 }],
             ['abab', { a: 2, b: 2 }], ['aaabbbbb', { a: 3, b: 5 }]];
 
