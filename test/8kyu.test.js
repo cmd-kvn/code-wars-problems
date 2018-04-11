@@ -18,6 +18,7 @@ const tripleTrouble = require(`${dir}triple-trouble`);
 const Person = require(`${dir}classy-classes`);
 const datingRange = require(`${dir}age-range-compatibility-equation`);
 const pointsPer48 = require(`${dir}nba-full-48-minutes-average`);
+const fakeBinary = require(`${dir}fake-binary`);
 
 describe('8kyu katas', () => {
     let tests, answers;
@@ -151,4 +152,11 @@ describe('8kyu katas', () => {
         
         tests.map(test => assert.equal(pointsPer48(test[0][0], test[0][1]), test[1]));    
     });
+
+    it('Passes "fakeBinary"', () => {
+        tests = ['45385593107843568', '509321967506747', '366058562030849490134388085'];
+        answers = ['01011110001100111', '101000111101101', '011011110000101010000011011'];
+   
+        tests.map((test, i) => assert.equal(fakeBinary(test), answers[i]));
+    })
 });
