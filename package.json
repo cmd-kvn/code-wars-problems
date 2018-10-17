@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/cmd-kvn/code-wars-problems#readme",
   "devDependencies": {
-    "chai": "^4.1.0",
-    "eslint": "^4.3.0",
-    "mocha": "^3.5.0"
+    "chai": "^4.2.0",
+    "eslint": "^4.19.1",
+    "mocha": "^3.5.3"
   }
 }
